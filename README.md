@@ -58,7 +58,7 @@ python -m pytest tests/ --cov # Run tests with coverage
 
 ### Running Linter
 
-```
+```bash
 pip install --group=lint  # Install lint dependencies, skip if already installed
 ruff check . # Run linter
 ```
