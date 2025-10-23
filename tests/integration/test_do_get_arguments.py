@@ -12,7 +12,7 @@ header = (
 
 
 def test_do_help_empty():
-    arguments = tuple()
+    arguments = list()
     expected = {"files": list()}
     with unittest.mock.patch("pymport.do_help") as finish:
         result = pymport.do_get_arguments(arguments)
@@ -21,7 +21,7 @@ def test_do_help_empty():
 
 
 def test_do_help_help():
-    arguments = ("--help",)
+    arguments = ["--help",]
     expected = {"files": list()}
     with unittest.mock.patch("pymport.do_help") as finish:
         result = pymport.do_get_arguments(arguments)
@@ -37,7 +37,7 @@ def test_do_help_help():
 def test_do_help():
     # Test expanduser is called
     filename = pathlib.Path("~", "foo")
-    arguments = (str(filename),)
+    arguments = [str(filename),]
     expected = {"files": [filename.expanduser()]}
     with unittest.mock.patch("pymport.do_help") as finish:
         result = pymport.do_get_arguments(arguments)
