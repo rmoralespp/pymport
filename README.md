@@ -12,28 +12,37 @@ A lightweight Python linter for checking unused imports
 
 ### Features
 
-TODO: Add features list
+**TODO:** Add features list
 
 ## Installation
 
-TODO: Add installation instructions
+To install **pymport** using `pip`, run the following command:
+
+```bash
+pip install pymport --upgrade
+```
 
 ## Quick Start
 
 TODO: Add quick start instructions
 
 > [!TIP]
-> "Ignoring Unused Imports"
-> 
-> Use a comment like '# noqa: unused-import' to ignore the line."
+> **Ignoring Unused Imports**
+>
+> Use a comment like `# noqa: unused-import` to ignore the line.
 
-## Command Line Usage
+## CLI Usage
+
+You can run the linter from the command line using the following syntax:
+
+```bash
+`pymport [FILE] [--help]`
+```
 
 | Argument / Option | Description                   |
 |-------------------|-------------------------------|
 | `[FILE]`          | Files or directories to lint. |
 | `--help`          | Show help message and exit.   |
-
 
 ## Development
 
@@ -41,11 +50,13 @@ To contribute to the project, you can run the following commands for testing and
 
 First, ensure you have the latest version of `pip`:
 
-```python -m pip install --upgrade pip```
-
-### Running Unit Tests
-
+```bash
+python -m pip install --upgrade pip
 ```
+
+### Running Tests
+
+```bash
 pip install --group=test  # Install test dependencies, skip if already installed
 python -m pytest tests/ # Run all tests
 python -m pytest tests/ --cov # Run tests with coverage
@@ -54,10 +65,9 @@ python -m pytest tests/ --cov # Run tests with coverage
 ### Running Linter
 
 ```
-pip install --group=lint  # Install linter dependencies, skip if already installed
+pip install --group=lint  # Install lint dependencies, skip if already installed
 ruff check . # Run linter
 ```
-
 
 ## License
 
