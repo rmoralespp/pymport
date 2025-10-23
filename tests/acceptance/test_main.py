@@ -64,7 +64,7 @@ def test_main_errors():
                 unittest.mock.call("{}:2: a".format(item1)),
                 unittest.mock.call("{}:1: b".format(item2)),
             ),
-            any_order=True,  # In linux glob does not garantee order
+            any_order=True,  # In linux glob does not guarantee order
         )
 
 

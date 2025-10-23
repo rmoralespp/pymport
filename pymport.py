@@ -16,7 +16,7 @@ import re
 import sys
 
 
-def uniques(function):
+def uniques(function, /):
 
     @functools.wraps(function)
     def worker(*args, **kwargs):
@@ -29,9 +29,9 @@ def uniques(function):
     return worker
 
 
-def _make_noqa(filename: str):
+def _make_noqa(filename: str, /):
 
-    def worker(lineno: int) -> bool:
+    def worker(lineno: int, /) -> bool:
         line = linecache.getline(filename, lineno)
         return machine(line) is not None
 
@@ -178,7 +178,7 @@ def walker(filenames, /):
                 for name in ignore(dirs):
                     dirs.remove(name)
         elif root.is_file():
-            # Accept user input, do not filter out by extensiom
+            # Accept user input, do not filter out by extension
             yield root
 
 
