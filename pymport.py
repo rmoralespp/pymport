@@ -242,5 +242,9 @@ def do_get_arguments(arguments: list, /) -> dict:
     return context
 
 
+def entrypoint():
+    return main(do_get_arguments(sys.argv[1:]))
+
+
 if __name__ == "__main__":
-    sys.exit(main(do_get_arguments(sys.argv[1:])))
+    sys.exit(entrypoint())

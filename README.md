@@ -24,25 +24,19 @@ pip install pymport --upgrade
 
 ## Quick Start
 
-TODO: Add quick start instructions
+You can run the linter from the **CLI** using the following syntax:
+
+`pymport [FILE] [--help]`
+
+| Argument / Option | Description                                                             |
+|-------------------|-------------------------------------------------------------------------|
+| `[FILE]`          | Files or directories to lint. (Need at least one file or dir to check.) |
+| `--help`          | Show help message and exit.                                             |
 
 > [!TIP]
 > **Ignoring Unused Imports**
 >
 > Use a comment like `# noqa: unused-import` to ignore the line.
-
-## CLI Usage
-
-You can run the linter from the command line using the following syntax:
-
-```bash
-`pymport [FILE] [--help]`
-```
-
-| Argument / Option | Description                   |
-|-------------------|-------------------------------|
-| `[FILE]`          | Files or directories to lint. |
-| `--help`          | Show help message and exit.   |
 
 ## Development
 

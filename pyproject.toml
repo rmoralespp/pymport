@@ -183,3 +183,6 @@ ignore = [
     "PT011", # `pytest.raises(ValueError)` is too broad, set the `match` parameter or use a more specific exception
     "PT019", # Fixture `_` without value is injected as parameter, use `@pytest.mark.usefixtures` instead
 ]
+
+[project.scripts]
+pymport = "pymport:entrypoint"
