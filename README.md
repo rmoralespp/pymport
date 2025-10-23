@@ -51,7 +51,7 @@ python -m pip install --upgrade pip
 ### Running Tests
 
 ```bash
-pip install --group=test  # Install test dependencies, skip if already installed
+pip install --group=test --upgrade # Install test dependencies, skip if already installed
 python -m pytest tests/ # Run all tests
 python -m pytest tests/ --cov # Run tests with coverage
 ```
@@ -59,7 +59,7 @@ python -m pytest tests/ --cov # Run tests with coverage
 ### Running Linter
 
 ```bash
-pip install --group=lint  # Install lint dependencies, skip if already installed
+pip install --group=lint --upgrade  # Install lint dependencies, skip if already installed
 ruff check . # Run linter
 ```
 
