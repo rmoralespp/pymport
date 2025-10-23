@@ -1,3 +1,52 @@
+[project]
+name = "pymport"
+version = "0.0.0"
+description = "A lightweight Python linter for checking unused docstrings."
+readme = "README.md"
+license-files = ["LICENSE"]
+keywords = ["python", "linter", "developer-tools", "code-quality", "import"]
+authors = [
+    { name = "rmoralespp", email = "rmoralespp@gmail.com" },
+    { name = "malatorrediaz" },
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet",
+    "Topic :: Utilities",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Source = "https://github.com/rmoralespp/pymport"
+Homepage = "https://github.com/rmoralespp/pymport"
+Changelog = "https://github.com/rmoralespp/pymport/blob/main/CHANGELOG.md"
+Issues = "https://github.com/rmoralespp/pymport/issues"
+
+
+[dependency-groups]
+test = [
+    "pytest",
+    "coverage",
+    "pytest-cov",
+]
+
+lint = [
+    "ruff",
+]
+
 [tool.coverage.run]
 branch = true
 concurrency = ["multiprocessing"]
