@@ -2,6 +2,7 @@
 
 - **Added:** Include pypi badge in **README.md**.
 - **Added:** Print success message when no issues are found.
+- **Fixed:** Ruff `warning: `RUF025` has been remapped to `C420`.
 
 ### v0.0.1 (2025-10-23)
 

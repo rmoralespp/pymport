@@ -155,7 +155,6 @@ select = [
 
     # Ruff-specific rules
     "RUF024", # Do not pass mutable objects as values to dict.fromkeys
-    "RUF025", # Unnecessary dict comprehension for iterable; use dict.fromkeys instead
     "RUF026", # default_factory is a positional-only argument to defaultdict
     "RUF100", # Unused noqa directive
 ]
