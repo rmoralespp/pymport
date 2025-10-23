@@ -1,6 +1,6 @@
 ## Releases
 
-- **Added:** Include pypi badge in **README.md**.
+- **Added:** Include PyPI badge in **README.md** and update **features** section.
 - **Added:** Print success message when no issues are found.
 - **Fixed:** Ruff `warning: `RUF025` has been remapped to `C420`.
 
