@@ -18,6 +18,22 @@ TODO: Add features list
 
 TODO: Add installation instructions
 
+## Quick Start
+
+TODO: Add quick start instructions
+
+> [!TIP]
+> "Ignoring Unused Imports"
+> 
+> Use a comment like '# noqa: unused-import' to ignore the line."
+
+## Command Line Usage
+
+| Argument / Option | Description                   |
+|-------------------|-------------------------------|
+| `[FILE]`          | Files or directories to lint. |
+| `--help`          | Show help message and exit.   |
+
 
 ## Development
 
