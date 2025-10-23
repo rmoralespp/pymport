@@ -19,7 +19,6 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
     "Topic :: Software Development :: Libraries :: Python Modules",
@@ -68,7 +67,7 @@ testpaths = [
 
 [tool.black]
 line-length = 120
-target-version = ["py311"]
+target-version = ["py313"]
 
 [tool.isort]
 # Unify "ruff" fixer style (which uses "black" style formatting) and "isort"
@@ -78,7 +77,7 @@ lines_between_types = 1
 
 [tool.ruff]
 line-length = 120
-target-version = "py311"
+target-version = "py313"
 preview = true
 
 [tool.ruff.lint.isort]
