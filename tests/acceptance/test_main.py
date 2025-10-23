@@ -5,6 +5,7 @@ import tempfile
 import unittest.mock
 
 import pymport
+import tests
 
 
 def test_main_ok():
@@ -28,7 +29,7 @@ def test_main_ok():
         context = {"files": [root]}
         result = pymport.main(context)
         assert result == 0
-        printer.assert_not_called()
+        assert printer.call_args_list == [tests.ok_call]
 
 
 def test_main_errors():
@@ -79,4 +80,4 @@ def test_main_syntax_error():
         context = {"files": [root]}
         result = pymport.main(context)
         assert result == 0
-        printer.assert_not_called()
+        assert printer.call_args_list == [tests.ok_call]

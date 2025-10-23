@@ -3,6 +3,7 @@
 import unittest.mock
 
 import pymport
+import tests
 
 
 def test_dump_results_1():
@@ -25,7 +26,8 @@ def test_dump_results_1():
 
 def test_dump_results_0():
     items = ()
+    expected = [tests.ok_call]
     with unittest.mock.patch.object(pymport, "print") as printer:
         result = pymport.dump_results(items)
         assert result == 0
-        printer.assert_not_called()
+        assert printer.call_args_list == expected

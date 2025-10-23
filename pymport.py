@@ -190,6 +190,8 @@ def dump_results(results, /) -> int:
         result = 1
         print(fmt(*info))
 
+    if not result:
+        print("All checks passed!")
     return result
 
 

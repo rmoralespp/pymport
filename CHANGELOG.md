@@ -1,6 +1,7 @@
 ## Releases
 
-- **Added:** Include pypi badge in README.md.
+- **Added:** Include pypi badge in **README.md**.
+- **Added:** Print success message when no issues are found.
 
 ### v0.0.1 (2025-10-23)
 
