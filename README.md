@@ -21,7 +21,7 @@ is not needed.
 
 A minimal typical example could be:
 
-```
+```python
 import os.path
 
 print(os.curdir)
