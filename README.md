@@ -12,7 +12,20 @@ A lightweight Python linter for checking unused imports
 
 ### Features
 
-**TODO:** Add features list
+This tool tries to identify unused imports in a single module.
+This task is not possible to assure a 100% false positive free result due to the
+possible collateral execution effects when importing a module.
+This is, importing a module can affect or enable some feature needed somewhere
+else, so not using anything from that imported package/module does not necessarily mean
+is not needed.
+
+A minimal typical example could be:
+
+```
+import os.path
+
+print(os.curdir)
+```
 
 ## Installation
 
