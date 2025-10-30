@@ -55,12 +55,19 @@ pymport .
 
 ### Command-Line Interface
 
-`pymport [FILE] [--help]`
+Usage: `pymport [FILE] [--help] [--quiet] [--ignore=DIR]...`
 
 | Argument / Option | Description                                                             |
 |-------------------|-------------------------------------------------------------------------|
 | `[FILE]`          | Files or directories to lint. (Need at least one file or dir to check.) |
-| `--help`          | Show help message and exit.                                             |
+| `[--help]`        | Show help message and exit.                                             |
+| `[--quiet]`       | Decrease verbosity.                                                     |
+| `[--ignore]`      | Directory basename to ignore. Can be used multiple times.               |  
+
+> [!NOTE]
+>
+> Option `--ignore` defaults to: `.venv, .env, .git, .hg, .pytest_cache, .ruff_cache, __pycache__`
+
 
 > [!TIP]
 > **Ignoring Unused Imports**
@@ -78,7 +85,7 @@ path/to/file.py:LINE-NUMBER: UNUSED-IMPORT-NAME
 > [!NOTE]
 >
 > * Exit code `0` means no unused imports were found; exit code `1` indicates that unused imports were detected.
-> * When no unused imports are found, success message is printed.
+> * When no unused imports are found, success message is printed, unless `--quiet` is used.
 
 ## Development
 
