@@ -34,6 +34,8 @@ Homepage = "https://github.com/rmoralespp/pymport"
 Changelog = "https://github.com/rmoralespp/pymport/blob/main/CHANGELOG.md"
 Issues = "https://github.com/rmoralespp/pymport/issues"
 
+[project.scripts]
+pymport = "pymport:entrypoint"
 
 [dependency-groups]
 test = [
@@ -55,7 +57,7 @@ skip_empty = true
 skip_covered = true
 show_missing = true
 exclude_also = [
-  "if __name__ == .__main__.",
+    "if __name__ == .__main__.",
 ]
 
 [tool.pytest.ini_options]
@@ -182,6 +184,3 @@ ignore = [
     "PT011", # `pytest.raises(ValueError)` is too broad, set the `match` parameter or use a more specific exception
     "PT019", # Fixture `_` without value is injected as parameter, use `@pytest.mark.usefixtures` instead
 ]
-
-[project.scripts]
-pymport = "pymport:entrypoint"
