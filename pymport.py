@@ -15,6 +15,9 @@ import pathlib
 import re
 import sys
 
+# Ignore, at least, these directory basenames (default directories to ignore).
+default_ignore_dirs = (".venv", ".env", ".git", ".hg", ".pytest_cache", ".ruff_cache", "__pycache__")
+
 
 def uniques(function, /):
 
@@ -163,12 +166,11 @@ def unused_imports(filename: pathlib.Path, /) -> tuple:
     return result or None
 
 
-def walker(filenames, /):
+def walker(ignore_dirs, filenames, /):
     """Generator yielding python source file names."""
 
     suffixes = (".py", "pyw")
-    invalid_dirs = (".venv", ".env", ".git", ".hg", ".pytest_cache", ".ruff_cache", "__pycache__")
-    ignore = frozenset(invalid_dirs).intersection
+    ignore = frozenset(ignore_dirs).intersection
     valid = operator.methodcaller("endswith", suffixes)
     for root in filenames:
         if root.is_dir():
@@ -182,7 +184,7 @@ def walker(filenames, /):
             yield root
 
 
-def dump_results(results, /) -> int:
+def dump_results(quiet, results, /) -> int:
     fmt = "{}:{}: {}".format
     result = 0
     errors = filter(None, itertools.chain(results))
@@ -190,7 +192,7 @@ def dump_results(results, /) -> int:
         result = 1
         print(fmt(*info))
 
-    if not result:
+    if not quiet and not result:
         print("All checks passed!")
     return result
 
@@ -199,10 +201,10 @@ def main(context, /) -> int:
     pool = multiprocessing.Pool()
     with contextlib.closing(pool):
         chunksize = os.cpu_count() or 1
-        items = walker(context["files"])
+        items = walker(context["ignore"], context["files"])
         results = pool.imap(unused_imports, sorted(items), chunksize=chunksize)
     pool.join()
-    return dump_results(results)
+    return dump_results(context["quiet"], results)
 
 
 def do_help(*, header=None):
@@ -212,9 +214,14 @@ def do_help(*, header=None):
         "Detect unused imports.",
         "Use a comment like '# noqa: unused-import' to ignore the line.",
         "",
-        "Usage: %s [--help] [FILE]..." % filename,
+        "Usage: %s [--help] [--quiet] [--ignore=DIR] [FILE]..." % filename,
         "",
-        "FILE: File or directory.",
+        "--quiet Decrease verbosity.",
+        "",
+        "DIR:    Directory basename to ignore. This option can be",
+        "        specified multiple times. Defaults to:",
+        "        {}".format(", ".join(default_ignore_dirs)),
+        "FILE:   File or directory.",
     )
 
     for line in itertools.chain(header or "", lines):
@@ -226,11 +233,17 @@ def do_help(*, header=None):
 def do_get_arguments(arguments: list, /) -> dict:
     files = list()
     context = {
+        "quiet": False,
         "files": files,
+        "ignore": list(default_ignore_dirs),
     }
     for arg in arguments:
         if arg == "--help":
             do_help()
+        elif arg == "--quiet":
+            context["quiet"] = True
+        elif arg.startswith("--ignore="):
+            context["ignore"].append(arg.split("=", maxsplit=1)[1])
         else:
             files.append(pathlib.Path(arg).expanduser())
 

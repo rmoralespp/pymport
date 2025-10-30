@@ -26,7 +26,7 @@ def test_main_ok():
         item = directory / "f3.py"
         item.write_bytes(b"")
 
-        context = {"files": [root]}
+        context = {"files": [root], "ignore": tuple(), "quiet": False}
         result = pymport.main(context)
         assert result == 0
         assert printer.call_args_list == [tests.ok_call]
@@ -56,7 +56,7 @@ def test_main_errors():
         item2 = directory / "f3.py"
         item2.write_bytes(b"import b")
 
-        context = {"files": [root]}
+        context = {"files": [root], "ignore": tuple(), "quiet": False}
         result = pymport.main(context)
         assert result == 1
         printer.assert_has_calls(
@@ -77,7 +77,18 @@ def test_main_syntax_error():
         item = root / "f1.py"
         item.write_bytes(b"@!2")
 
-        context = {"files": [root]}
+        context = {"files": [root], "ignore": tuple(), "quiet": False}
         result = pymport.main(context)
         assert result == 0
         assert printer.call_args_list == [tests.ok_call]
+
+
+def test_entry_point():
+    with (
+        tempfile.TemporaryDirectory() as tmp,
+        unittest.mock.patch("pymport.sys.argv", [None, "--quiet", tmp]),
+    ):
+        result = pymport.entrypoint()
+
+    expected = 0
+    assert result == expected

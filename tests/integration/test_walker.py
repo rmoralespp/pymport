@@ -12,7 +12,7 @@ def test_walker_is_dir_is_file():
     filename.is_file = unittest.mock.Mock(return_value=False)
     filename.is_dir = unittest.mock.Mock(return_value=False)
 
-    result = tuple(pymport.walker((filename,)))
+    result = tuple(pymport.walker((), (filename,)))
     assert not result
 
 
@@ -49,6 +49,6 @@ def test_walker():
         item = directory / "f4.py"
         item.write_bytes(b"")
 
-        items = pymport.walker((root, item))
+        items = pymport.walker(("__pycache__",), (root, item))
         result = sorted(items)
         assert result == expected
