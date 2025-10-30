@@ -1,5 +1,6 @@
 # pymport
 
+[![GitHub tag](https://img.shields.io/github/tag/rmoralespp/pymport?include_prereleases=&sort=semver&color=black)](https://github.com/rmoralespp/pymport/releases/)
 [![PyPI](https://img.shields.io/pypi/v/pymport.svg)](https://pypi.python.org/pypi/pymport)
 [![CI](https://github.com/rmoralespp/pymport/workflows/CI/badge.svg)](https://github.com/rmoralespp/pymport/actions?query=event%3Arelease+workflow%3ACI)
 [![versions](https://img.shields.io/pypi/pyversions/pymport.svg)](https://github.com/rmoralespp/pymport)
@@ -9,7 +10,7 @@
 
 ## About
 
-A lightweight Python linter for checking unused imports
+A lightweight Python linter for checking **unused imports** in your Python files.
 
 ### Features
 
@@ -35,7 +36,7 @@ import os.path
 print(os.curdir)
 ```
 
-## Installation
+## 📦 Installation
 
 To install **pymport** using `pip`, run the following command:
 
@@ -43,7 +44,7 @@ To install **pymport** using `pip`, run the following command:
 pip install pymport --upgrade
 ```
 
-## Quick Start
+## ⚡ Quick Start
 
 To run the linter on the current directory, use the following command:
 
@@ -55,7 +56,7 @@ pymport .
 
 ### Command-Line Interface
 
-Usage: `pymport [FILE] [--help] [--quiet] [--ignore=DIR]...`
+Usage: `pymport [FILE] [--help] [--quiet] [--ignore=DIR]`
 
 | Argument / Option | Description                                                             |
 |-------------------|-------------------------------------------------------------------------|
@@ -87,7 +88,7 @@ path/to/file.py:LINE-NUMBER: UNUSED-IMPORT-NAME
 > * Exit code `0` means no unused imports were found; exit code `1` indicates that unused imports were detected.
 > * When no unused imports are found, success message is printed, unless `--quiet` is used.
 
-## Development
+## 🛠️ Development
 
 To contribute to the project, you can run the following commands for testing and documentation:
 
@@ -112,6 +113,6 @@ pip install --group=lint --upgrade  # Install lint dependencies, skip if already
 ruff check . # Run linter
 ```
 
-## License
+## 🗒️ License
 
 This project is licensed under the [MIT license](LICENSE).
