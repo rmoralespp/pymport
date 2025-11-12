@@ -1,5 +1,7 @@
 ## Releases
 
+- **Added:** Log unknown passed files.
+
 ### v0.0.3 (2025-10-30)
 
 - **Added:** Option `--ignore` to exclude specified directories from linting.

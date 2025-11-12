@@ -8,6 +8,7 @@ import contextlib
 import functools
 import itertools
 import linecache
+import logging
 import multiprocessing
 import operator
 import os
@@ -182,6 +183,8 @@ def walker(ignore_dirs, filenames, /):
         elif root.is_file():
             # Accept user input, do not filter out by extension
             yield root
+        else:
+            logging.warning("Unknown file: %s", root)
 
 
 def dump_results(quiet, results, /) -> int:
@@ -198,6 +201,7 @@ def dump_results(quiet, results, /) -> int:
 
 
 def main(context, /) -> int:
+    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
     pool = multiprocessing.Pool()
     with contextlib.closing(pool):
         chunksize = os.cpu_count() or 1
