@@ -17,7 +17,19 @@ import re
 import sys
 
 # Ignore, at least, these directory basenames (default directories to ignore).
-default_ignore_dirs = (".venv", ".env", ".git", ".hg", ".pytest_cache", ".ruff_cache", "__pycache__")
+default_ignore_dirs = (
+    # Common virtual environment directories
+    "venv",
+    "env",
+    ".venv",
+    ".env",
+    # Common build directories
+    ".git",  # Git
+    ".hg",  # Mercurial
+    ".pytest_cache",  # Pytest cache
+    ".ruff_cache",  # Ruff cache
+    "__pycache__",  # Python cache
+)
 
 
 def uniques(function, /):
