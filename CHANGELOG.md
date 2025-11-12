@@ -2,6 +2,7 @@
 
 - **Added:** Log unknown passed files.
 - **Change:** Limit the minimum Python version to 3.12 because several features of `pathlib` used are introduced in this version.
+- **Change:** Update README.md with `# noqa` instructions for ignoring unused imports.
 
 ### v0.0.3 (2025-10-30)
 

@@ -73,7 +73,9 @@ Usage: `pymport [FILE] [--help] [--quiet] [--ignore=DIR]`
 > [!TIP]
 > **Ignoring Unused Imports**
 >
-> Use a comment like `# noqa: unused-import` to ignore the line.
+> Use a comment like `# noqa: F401`(or just `# noqa`) at the end of the import line to ignore specific unused imports.
+> 
+> *Use same error code (F401) as Pyflakes, Ruff*
 
 ### Output
 
