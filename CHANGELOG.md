@@ -1,5 +1,7 @@
 ## Releases
 
+### v0.0.5 (2025-11-13)
+
 - **Fixed:** Avoid always logs warnings when using the `--quiet` option
 
 ### v0.0.4 (2025-11-12)

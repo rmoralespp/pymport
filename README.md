@@ -65,10 +65,6 @@ Usage: `pymport [FILE] [--help] [--quiet] [--ignore=DIR]`
 | `[--quiet]`       | Decrease verbosity.                                                     |
 | `[--ignore]`      | Directory basename to ignore. Can be used multiple times.               |  
 
-> [!NOTE]
->
-> Option `--ignore` defaults to: `.venv, .env, .git, .hg, .pytest_cache, .ruff_cache, __pycache__`
-
 
 > [!TIP]
 > **Ignoring Unused Imports**
