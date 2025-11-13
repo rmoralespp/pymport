@@ -179,7 +179,7 @@ def unused_imports(filename: pathlib.Path, /) -> tuple:
     return result or None
 
 
-def walker(ignore_dirs, filenames, /):
+def walker(ignore_dirs, filenames, quiet, /):
     """Generator yielding python source file names."""
 
     suffixes = (".py", "pyw")
@@ -195,7 +195,7 @@ def walker(ignore_dirs, filenames, /):
         elif root.is_file():
             # Accept user input, do not filter out by extension
             yield root
-        else:
+        elif not quiet:
             logging.warning("Unknown file: %s", root)
 
 
@@ -217,7 +217,7 @@ def main(context, /) -> int:
     pool = multiprocessing.Pool()
     with contextlib.closing(pool):
         chunksize = os.cpu_count() or 1
-        items = walker(context["ignore"], context["files"])
+        items = walker(context["ignore"], context["files"], context["quiet"])
         results = pool.imap(unused_imports, sorted(items), chunksize=chunksize)
     pool.join()
     return dump_results(context["quiet"], results)

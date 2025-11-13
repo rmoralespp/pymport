@@ -1,5 +1,7 @@
 ## Releases
 
+- **Fixed:** Avoid always logs warnings when using the `--quiet` option
+
 ### v0.0.4 (2025-11-12)
 
 - **Added:** Log unknown passed files.

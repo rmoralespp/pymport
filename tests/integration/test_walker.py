@@ -4,16 +4,24 @@ import pathlib
 import tempfile
 import unittest.mock
 
+import pytest
+
 import pymport
 
 
-def test_walker_is_dir_is_file():
+@pytest.mark.parametrize("quiet", (True, False))
+def test_walker_is_dir_is_file(caplog, quiet):
     filename = unittest.mock.Mock()
     filename.is_file = unittest.mock.Mock(return_value=False)
     filename.is_dir = unittest.mock.Mock(return_value=False)
 
-    result = tuple(pymport.walker((), (filename,)))
+    result = tuple(pymport.walker((), (filename,), quiet))
     assert not result
+    if quiet:
+        assert not caplog.records
+    else:
+        assert len(caplog.records) == 1
+        assert f"Unknown file: {filename}" in caplog.text
 
 
 def test_walker():
@@ -49,6 +57,6 @@ def test_walker():
         item = directory / "f4.py"
         item.write_bytes(b"")
 
-        items = pymport.walker(("__pycache__",), (root, item))
+        items = pymport.walker(("__pycache__",), (root, item), False)
         result = sorted(items)
         assert result == expected
