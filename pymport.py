@@ -205,7 +205,8 @@ def dump_results(quiet, results, /) -> int:
     errors = filter(None, itertools.chain(results))
     for info in itertools.chain.from_iterable(errors):
         result = 1
-        print(fmt(*info))
+        if not quiet:
+            print(fmt(*info))
 
     if not quiet and not result:
         print("All checks passed!")

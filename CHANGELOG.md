@@ -1,6 +1,7 @@
 ## Releases
 
 - **Added:** Add **pre-commit** hook support
+- **Change:** Avoid always *unused-imports messages* when using the `--quiet` option
 
 ### v0.0.5 (2025-11-13)
 
