@@ -95,7 +95,7 @@ Update your `.pre-commit-config.yaml` to include the **pymport** hook:
 ```yaml
 repos:
   - repo: https://github.com/rmoralespp/pymport
-    rev: rev  # Use the latest commit hash or tag
+    rev: 6e03688a69b1edd406c540f33274d20bea7e2d2f  # Use the latest commit hash or tag
     hooks:
       - id: pymport
         args: [".", "--quiet" ]  # customize as needed
