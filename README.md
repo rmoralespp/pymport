@@ -19,7 +19,7 @@ A lightweight Python linter for checking **unused imports** in your Python files
 * ⚙️ Minimalist CLI interface for easy integration in **CI/CD** pipelines
 * 🐍 No external dependencies beyond the Python standard library
 * ✅ **100%** test coverage with automated tests
-- 🔌 Provides [pre‑commit](https://pre-commit.com/) hook integration for automated checks
+* 🔌 Provides [pre‑commit](https://pre-commit.com/) hook integration for automated checks
 
 > [!IMPORTANT]
 > **False positives**
