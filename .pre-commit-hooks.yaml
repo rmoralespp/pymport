@@ -1,0 +1,7 @@
+- id: pymport
+  name: pymport
+  description: A lightweight Python linter for checking unused docstrings.
+  entry: pymport
+  language: python
+  types: [python]
+  require_serial: true

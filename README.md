@@ -86,6 +86,22 @@ path/to/file.py:LINE-NUMBER: UNUSED-IMPORT-NAME
 > * Exit code `0` means no unused imports were found; exit code `1` indicates that unused imports were detected.
 > * When no unused imports are found, success message is printed, unless `--quiet` is used.
 
+## Pre‑commit Integration
+
+The linter can be easily integrated into your [pre‑commit](https://pre-commit.com/) workflow.
+
+Update your `.pre-commit-config.yaml` to include the **pymport** hook:
+
+```yaml
+repos:
+  - repo: https://github.com/rmoralespp/pymport
+    rev: rev  # Use the latest commit hash or tag
+    hooks:
+      - id: pymport
+        args: [".", "--quiet" ]  # customize as needed
+        pass_filenames: false  # needed if excluding files with --ignore
+```
+
 ## 🛠️ Development
 
 To contribute to the project, you can run the following commands for testing and documentation:

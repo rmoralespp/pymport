@@ -1,5 +1,7 @@
 ## Releases
 
+- **Added:** Add **pre-commit** hook support
+
 ### v0.0.5 (2025-11-13)
 
 - **Fixed:** Avoid always logs warnings when using the `--quiet` option
