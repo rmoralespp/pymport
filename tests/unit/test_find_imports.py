@@ -25,7 +25,7 @@ def test_find_imports_line():
 
 
 def test_find_import_from_future():
-    code = "from __future__ import typying"
+    code = "from __future__ import absolute_import"
     expected = tuple()
     tree = tests.make_ast(code)
     items = pymport.find_imports(tree)
