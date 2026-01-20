@@ -99,7 +99,7 @@ repos:
     rev: 0.0.6  # Use the latest commit hash or tag
     hooks:
       - id: pymport
-        args: [".", "--quiet" ]  # customize as needed
+        args: ["."]  # customize as needed
         pass_filenames: false  # needed if excluding files with --ignore
 ```
 

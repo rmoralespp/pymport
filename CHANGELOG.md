@@ -1,5 +1,8 @@
 ## Releases
 
+- **Change**: Update python-version in CI/CD to 3.14
+- **Fixed:** Unit tests in Python 3.14
+
 ### v0.0.6 (2025-11-21)
 
 - **Added:** Add **pre-commit** hook support
