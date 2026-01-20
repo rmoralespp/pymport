@@ -1,6 +1,9 @@
 ## Releases
 
-- **Fixed:** Unit tests in Python 3.14
+### v0.0.7 (2026-01-20)
+
+- **Fixed:** Unit tests in Python 3.14 environment.
+- **Fixed:** `pyproject.toml` description field content.
 
 ### v0.0.6 (2025-11-21)
 

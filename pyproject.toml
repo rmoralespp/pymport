@@ -1,7 +1,7 @@
 [project]
 name = "pymport"
-version = "0.0.6"
-description = "A lightweight Python linter for checking unused docstrings."
+version = "0.0.7"
+description = "A lightweight Python linter for checking unused imports."
 readme = "README.md"
 license-files = ["LICENSE"]
 keywords = ["python", "linter", "developer-tools", "code-quality", "import"]
